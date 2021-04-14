@@ -4,8 +4,6 @@
 When handling localization for my app I was using the excellent [https://pub.dev/packages/flutter_sheet_localization](https://pub.dev/packages/flutter_sheet_localization) package. I have also been using the GetX package. GetX now has their own translation code options so I wanted the benefits of storing my translations in google sheets but also wanted the ability to have the code I would need for GetX generated automatically since you must write a lot of tedious code to translate your app.
 
 I created a code generator that will do this.
-[**delay/getx_google_sheets_translation_code_generator**
-*A new Flutter project. This project is a starting point for a Flutter application. A few resources to get you started…*github.com](https://github.com/delay/getx_google_sheets_translation_code_generator)
 
 So let me explain how it works. You need to create a translation for your app in google sheets.
 
