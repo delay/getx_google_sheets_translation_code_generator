@@ -1,16 +1,35 @@
-# getx_google_sheets_translation_code_generator
 
-A new Flutter project.
+## GetX Google Sheets Translation Code Generator
 
-## Getting Started
+When handling localization for my app I was using the excellent [https://pub.dev/packages/flutter_sheet_localization](https://pub.dev/packages/flutter_sheet_localization) package. I have also been using the GetX package. GetX now has their own translation code options so I wanted the benefits of storing my translations in google sheets but also wanted the ability to have the code I would need for GetX generated automatically since you must write a lot of tedious code to translate your app.
 
-This project is a starting point for a Flutter application.
+I created a code generator that will do this.
+[**delay/getx_google_sheets_translation_code_generator**
+*A new Flutter project. This project is a starting point for a Flutter application. A few resources to get you started…*github.com](https://github.com/delay/getx_google_sheets_translation_code_generator)
 
-A few resources to get you started if this is your first Flutter project:
+So let me explain how it works. You need to create a translation for your app in google sheets.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![](https://cdn-images-1.medium.com/max/2000/0*np0ZcUgEyUHVBTv1)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You can copy my [sheet](https://docs.google.com/spreadsheets/d/1oS7iJ6ocrZBA53SxRfKF0CG9HAaXeKtzvsTBhgG4Zzk/edit#gid=0) as a starting point for your own app. The cool thing about using a google sheet is you can have google translate a field with a simple google formula: =GOOGLETRANSLATE(B4,en,fr) This says translate the phrase in field B4 from english to french. Next you can edit the main.dart file in the [project](https://github.com/delay/getx_google_sheets_translation_code_generator) I listed earlier and edit these two lines.
+
+    //the document id for your google sheet  
+    String documentId = "1oS7iJ6ocrZBA53SxRfKF0CG9HAaXeKtzvsTBhgG4Zzk";  //the sheet id of your google sheet  
+    String sheetId = "0";
+
+The next step is to go to the command line and change to the lib/ directory. Then type:
+
+    dart main.dart
+
+This will create a localization.g.dart file with your generated code that looks like this.
+
+![](https://cdn-images-1.medium.com/max/3264/1*OXPz9LP3ngV2dqKe_CGe1A.png)
+
+You can then use these translations in your own project with something like this.
+
+    Text('settings.updateProfile'.tr)
+
+You can find out more about how to use getX translations [here](https://pub.dev/packages/get#internationalization).
+
+Anyway I hope you will find this useful for your own projects. If you would like to see how I used this in a project you can take a look at my [getX flutter starter project](https://jeffmcmorris.medium.com/getx-flutter-firebase-auth-example-b383c1dd1de2)
+
